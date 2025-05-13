@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcJwtService.Protos";
+
+package jwt;
+
+
+service JwtTokenService {
+  rpc GenerateToken (JwtRequest) returns (JwtReply);
+}
+
+message JwtRequest {
+  string userid = 1;
+  string username = 2;
+  string email = 3;
+  string role = 4;
+}
+
+message JwtReply {
+  bool success = 1;
+  string message = 2;
+}
